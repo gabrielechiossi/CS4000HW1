@@ -12,6 +12,8 @@ void Hello() {
   }
 }
 int main() {
-  #pragma parallel
+  #pragma omp parallel //the problem was on this line, you have to insert #pragma omp parallel
+                      //and before there just was #pragma parallel
+                      //to find this I used -Wall that told me right away where the problem was
   Hello();
 }
