@@ -27,10 +27,14 @@ bool is_prime(long long x) {
 //It does count them in parallel with omp, splitting the for loop
 long long count_primes(long long a, long long b) {
   long long sum=0;
-  #pragma omp parallel 
-  #pragma omp for reduction (+:sum)
+  #pragma omp parallel for
   for (long long i = a;i<=b;i++) {
-    if (is_prime(i)) sum++;
+    if (is_prime(i)){
+      #pragma omp critical
+      {
+        sum++;
+      }
+    } 
   }
   return sum;
 }
