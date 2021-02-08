@@ -1,3 +1,8 @@
+/**
+ *   @file: count_primes_copy.cc
+ * @author: Gabriele Chiossi
+ *   @date: 02/07/21
+ */
 #include <iostream>
 #include "omp.h"
 
@@ -19,7 +24,7 @@ bool is_prime(long long x) {
 }
 
 // Count the number of primes between a and b, inclusive
-
+//It does count them in parallel with omp, splitting the for loop
 long long count_primes(long long a, long long b) {
   long long sum=0;
   #pragma omp parallel 
@@ -30,6 +35,7 @@ long long count_primes(long long a, long long b) {
   return sum;
 }
 
+//main fucntion
 int main() {
   long long a;
   long long b;
