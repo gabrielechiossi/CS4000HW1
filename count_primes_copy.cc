@@ -39,7 +39,7 @@ long long count_primes(long long a, long long b) {
   return sum;
 }
 
-//main fucntion
+//main function
 int main() {
   long long a;
   long long b;
